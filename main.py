@@ -2,10 +2,11 @@ import sys
 import resources_rc
 import requests
 from installer import SephirothInstaller
-from PySide6.QtCore import Qt, QUrl, Signal, QThread, QTimer
+from PySide6.QtCore import Qt, QUrl, Signal, QThread
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtWidgets import QApplication, QVBoxLayout, QLabel, QWidget, QStackedWidget, QPushButton, QHBoxLayout, \
-    QFrame, QComboBox, QFileDialog, QLineEdit, QProgressBar, QCheckBox
+    QFrame, QComboBox, QFileDialog, QLineEdit, QProgressBar, QCheckBox, QMessageBox
+import os
 
 edition0 = "[1] Basic"
 install_location = r"C:\Program Files\Sephiroth"
@@ -64,11 +65,11 @@ class WelcomePage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("SephirothOS")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 48pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 56px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
 
         self.subtitle = QLabel("Welcome back to your despair.")
-        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 16pt; font-weight: 400; font-style: italic;")
+        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 16px; font-weight: 400; font-style: italic;")
         self.mainlayout.addWidget(self.subtitle)
         self.mainlayout.addSpacing(20)
 
@@ -130,7 +131,7 @@ class EditionPage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("Choose an Edition")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 30pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 36px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
         self.mainlayout.addSpacing(10)
 
@@ -157,7 +158,7 @@ class EditionPage(QWidget):
         self.selectlayout.addSpacing(20)
 
         self.description = QLabel()
-        self.description.setStyleSheet("font-family: Segoe UI; font-size: 12pt; padding: 0px 0px")
+        self.description.setStyleSheet("font-family: Segoe UI; font-size: 16px; padding: 0px 0px")
         self.description.setWordWrap(True)
         self.description.setText(self.editions[self.selecter.currentText()])
         self.selectlayout.addWidget(self.description)
@@ -236,11 +237,11 @@ class PathPage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("Install Location")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 30pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 36px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
 
         self.subtitle = QLabel("The installer will create the directory if it doesn't exist.")
-        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 12pt; font-weight: 400; font-style: italic;")
+        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 16px; font-weight: 400; font-style: italic;")
         self.mainlayout.addWidget(self.subtitle)
         self.mainlayout.addSpacing(10)
 
@@ -347,11 +348,11 @@ class ReadyPage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("Ready to Install?")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 30pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 36px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
 
         self.subtitle = QLabel("We put all your shit here so you can double-check.")
-        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 12pt; font-weight: 400; font-style: italic;")
+        self.subtitle.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 16px; font-weight: 400; font-style: italic;")
         self.mainlayout.addWidget(self.subtitle)
         self.mainlayout.addSpacing(10)
 
@@ -366,9 +367,9 @@ class ReadyPage(QWidget):
         self.editionlabel = QLabel()
         self.versionlabel = QLabel()
 
-        self.pathlabel.setStyleSheet("font-family: Segoe UI; font-size: 12pt; font-weight: 500;")
-        self.editionlabel.setStyleSheet("font-family: Segoe UI; font-size: 12pt; font-weight: 500;")
-        self.versionlabel.setStyleSheet("font-family: Segoe UI; font-size: 12pt; font-weight: 500;")
+        self.pathlabel.setStyleSheet("font-family: Segoe UI; font-size: 16px; font-weight: 500;")
+        self.editionlabel.setStyleSheet("font-family: Segoe UI; font-size: 16px; font-weight: 500;")
+        self.versionlabel.setStyleSheet("font-family: Segoe UI; font-size: 16px; font-weight: 500;")
 
         self.mainlayout.addWidget(self.pathlabel)
         self.mainlayout.addWidget(self.editionlabel)
@@ -425,11 +426,18 @@ class ReadyPage(QWidget):
         self.setLayout(self.mainlayout)
 
     def next_page(self):
-        install_page = self.stack.widget(4)
+        if os.path.isdir(install_location):
+            reply = QMessageBox.warning(
+                self, "Installation Found",
+                                "An installation of SephirothOS already exists at the target path. Are you sure you want to proceed?",
+                                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.Cancel,
+                                QMessageBox.StandardButton.Cancel
+                                )
 
-        self.stack.setCurrentIndex(4)
-
-        install_page.start_install()
+            if reply == QMessageBox.StandardButton.Yes:
+                install_page = self.stack.widget(4)
+                self.stack.setCurrentIndex(4)
+                install_page.start_install()
 
     def last_page(self):
         self.stack.setCurrentIndex(self.stack.currentIndex() - 1)
@@ -450,7 +458,7 @@ class InstallPage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("Installing...")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 30pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 36px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
         self.mainlayout.addSpacing(10)
 
@@ -464,7 +472,7 @@ class InstallPage(QWidget):
         self.status = QLabel("Preparing installer...")
         self.status.setStyleSheet(
             "font-family: Segoe UI;"
-            "font-size: 12pt;"
+            "font-size: 16px;"
         )
         self.mainlayout.addWidget(self.status)
 
@@ -529,12 +537,12 @@ class DonePage(QWidget):
         self.mainlayout.setSpacing(0)
 
         self.title = QLabel("Complete")
-        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 30pt; font-weight: 800; font-style: italic;")
+        self.title.setStyleSheet("background-color: transparent; font-family: Segoe UI; font-size: 36px; font-weight: 800; font-style: italic;")
         self.mainlayout.addWidget(self.title)
 
         self.subtitle = QLabel("Fuck you and have a nice day.")
         self.subtitle.setStyleSheet(
-            "background-color: transparent; font-family: Segoe UI; font-size: 12pt; font-weight: 400; font-style: italic;")
+            "background-color: transparent; font-family: Segoe UI; font-size: 16px; font-weight: 400; font-style: italic;")
         self.mainlayout.addWidget(self.subtitle)
         self.mainlayout.addSpacing(10)
 
