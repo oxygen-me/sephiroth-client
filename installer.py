@@ -150,7 +150,8 @@ class SephirothInstaller:
 
         data = {
             "edition": self.edition,
-            "flag": "seth67"
+            "flag": "seth67",
+            "upd": False
         }
 
         edition_path = Path(target_dir) / "license.json"
