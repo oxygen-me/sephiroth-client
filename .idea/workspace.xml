@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4a1ef05-d51f-48bc-a0c5-b527bc514c06" name="Changes" comment="began v2">
+    <list default="true" id="f4a1ef05-d51f-48bc-a0c5-b527bc514c06" name="Changes" comment="adjustments reflected in xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +100,7 @@
       <workItem from="1783049556366" duration="174000" />
       <workItem from="1783052011950" duration="1382000" />
       <workItem from="1783055671113" duration="1209000" />
+      <workItem from="1783116920597" duration="1966000" />
     </task>
     <task id="LOCAL-00001" summary="finished v1">
       <option name="closed" value="true" />
@@ -125,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783053614939</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adjustments reflected in xml">
+      <option name="closed" value="true" />
+      <created>1783116941744</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783116941744</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +146,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finished v1" />
     <MESSAGE value="began v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="began v2" />
+    <MESSAGE value="adjustments reflected in xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjustments reflected in xml" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Installer$main.coverage" NAME="main Coverage Results" MODIFIED="1782789824853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
