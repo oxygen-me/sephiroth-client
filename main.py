@@ -438,6 +438,10 @@ class ReadyPage(QWidget):
                 install_page = self.stack.widget(4)
                 self.stack.setCurrentIndex(4)
                 install_page.start_install()
+        else:
+            install_page = self.stack.widget(4)
+            self.stack.setCurrentIndex(4)
+            install_page.start_install()
 
     def last_page(self):
         self.stack.setCurrentIndex(self.stack.currentIndex() - 1)

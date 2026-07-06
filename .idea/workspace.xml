@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4a1ef05-d51f-48bc-a0c5-b527bc514c06" name="Changes" comment="adjustments reflected in xml">
+    <list default="true" id="f4a1ef05-d51f-48bc-a0c5-b527bc514c06" name="Changes" comment="e-patch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,21 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bradl/SephV2Project/Installer/assets&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/bradl/SephV2Project/Installer/assets",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bradl\SephV2Project\Installer\assets" />
@@ -100,7 +101,13 @@
       <workItem from="1783049556366" duration="174000" />
       <workItem from="1783052011950" duration="1382000" />
       <workItem from="1783055671113" duration="1209000" />
-      <workItem from="1783116920597" duration="1966000" />
+      <workItem from="1783116920597" duration="3664000" />
+      <workItem from="1783144757029" duration="1469000" />
+      <workItem from="1783151703406" duration="29000" />
+      <workItem from="1783208509153" duration="2028000" />
+      <workItem from="1783285319058" duration="7000" />
+      <workItem from="1783311311349" duration="24000" />
+      <workItem from="1783367329133" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="finished v1">
       <option name="closed" value="true" />
@@ -134,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783116941744</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="e-patch">
+      <option name="closed" value="true" />
+      <created>1783128649860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1783128649860</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,9 +162,10 @@
     <MESSAGE value="finished v1" />
     <MESSAGE value="began v2" />
     <MESSAGE value="adjustments reflected in xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjustments reflected in xml" />
+    <MESSAGE value="e-patch" />
+    <option name="LAST_COMMIT_MESSAGE" value="e-patch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Installer$main.coverage" NAME="main Coverage Results" MODIFIED="1782789824853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Installer$main.coverage" NAME="main Coverage Results" MODIFIED="1783221162310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
